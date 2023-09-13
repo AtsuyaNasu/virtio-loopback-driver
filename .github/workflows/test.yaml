@@ -94,6 +94,13 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           makeLatest: true
-          allowUpdates: true
           tag: v${{ env.PACKAGE_VERSION }}
           artifacts: "*.deb"
+
+      - name: Upload release
+        if: env.RELEASE == 'true'
+        uses: actions/upload-release-asset@v1.0.1
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: "*.deb"
+          
