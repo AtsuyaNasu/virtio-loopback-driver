@@ -19,7 +19,7 @@ jobs:
 
           PACKAGE_NAME=virtio-lo
 
-          if [[ ${{ github.ref }} == refs/tags/v* ]] ; then
+          if [[ ${{ github.ref }} == refs/tags/* ]] ; then
                 TAG=${{ github.ref_name }}
                 PACKAGE_VERSION="${TAG:1}"
                 RELEASE=true
