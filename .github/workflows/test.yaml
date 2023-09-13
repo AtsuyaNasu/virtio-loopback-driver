@@ -76,7 +76,12 @@ jobs:
           mkdir -p "${INSTALL}/usr/include/linux"
           cp virtio_lo.h "${INSTALL}/usr/include/linux"
           dpkg-deb --build "${INSTALL}" "${PACKAGE_NAME}-dev_${PACKAGE_VERSION}.deb"
-
+      
+      - name: Debug artifacts
+        run: |
+          pwd
+          ls -la
+          
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
