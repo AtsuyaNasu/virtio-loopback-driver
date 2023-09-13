@@ -94,5 +94,6 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           makeLatest: true
+          allowUpdates: true
           tag: v${{ env.PACKAGE_VERSION }}
           artifacts: "*.deb"
